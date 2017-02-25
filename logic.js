@@ -8,6 +8,8 @@ document.getElementById('encryptButton').onclick = function () {
     let message = openTextInput.value;
     alert("encrypting: " + message );
 
+    //TODO: encrypt message
+    //encrypt message -> encryptedTextInput
 };
 
 document.getElementById('decryptButton').onclick = function () {
