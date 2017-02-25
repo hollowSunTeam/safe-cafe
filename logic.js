@@ -3,18 +3,46 @@ function id(name) { return document.getElementById(name); }
 let openTextInput = id('openText');
 let encryptedTextInput = id('encryptedText');
 
+let OFFSET = 3;
+
+let alphabetTool = {
+    alphabet : 'абвгдеёжзийклмопрстуфхцчшщъыьэюя',
+    getCharWithId : function (id) {
+        return this.alphabet.charAt(id % this.alphabet.length);
+    },
+    getCharId : function (char) {
+        return this.alphabet.indexOf(char);
+    },
+};
+
 document.getElementById('encryptButton').onclick = function () {
 
     let message = openTextInput.value;
-    alert("encrypting: " + message );
+    let encryptedMessage = "";
 
-    //TODO: encrypt message
-    //encrypt message -> encryptedTextInput
+    for(charNum in message){
+        encryptedMessage += encryptLetter(message[charNum]);
+    }
+
+    encryptedTextInput.value = encryptedMessage;
 };
 
 document.getElementById('decryptButton').onclick = function () {
 
     let message = encryptedTextInput.value;
-    alert("decrypting: " + message);
+    let decryptedMessage = "";
 
+    for(charNum in message){
+        decryptedMessage += decryptLetter(message[charNum]);
+    }
+
+    openTextInput.value = decryptedMessage;
 };
+
+function encryptLetter(char) {
+    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) + OFFSET);
+}
+
+function decryptLetter(char) {
+    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) - OFFSET);
+}
