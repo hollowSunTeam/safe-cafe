@@ -4,20 +4,28 @@
     <title>Safe cafe</title>
 		<meta charset="utf-8" >
 		<script defer src="logic.js"></script>
+        <!--jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</head>
 	<body>
 
-    <form id="encryptForm">
+    <div>
+        <form id="encryptForm">
 
-      <p>Open text:</p>
-      <textarea type="text" id="openText" placeholder="type your text here"></textarea>
-	  <input type="button"  id="encryptButton" value="encrypt">
+          <p>Open text:</p>
+          <textarea type="text" id="openText" class="form-control" placeholder="type your text here"></textarea>
+          <input type="button" id="encryptButton" class="btn btn-default" value="encrypt">
 
-      <p>Close text:</p>
-      <textarea type="text" id="encryptedText"  placeholder="ecrypted text"></textarea>
-      <input type="button" id="decryptButton"  value="decrypt">
+          <p>Close text:</p>
+          <textarea type="text" id="encryptedText" class="form-control" placeholder="ecrypted text"></textarea>
+          <input type="button" id="decryptButton" class="btn btn-default" value="decrypt">
 
-    </form>
+        </form>
+    </div>
 
 	</body>
 </html>
