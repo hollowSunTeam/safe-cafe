@@ -8,6 +8,9 @@ let OFFSET = 3;
 let alphabetTool = {
     alphabet : 'абвгдеёжзийклмопрстуфхцчшщъыьэюя!@#$%^&*()_+.,:;>< abcdefghigklmnopqrstuvwxyz0987654321',
     getCharWithId : function (id) {
+        if(id < 0){
+            return this.alphabet.charAt(this.alphabet.length + id);
+        }
         return this.alphabet.charAt(id % this.alphabet.length);
     },
     getCharId : function (char) {
