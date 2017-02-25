@@ -6,7 +6,7 @@ let encryptedTextInput = id('encryptedText');
 let OFFSET = 3;
 
 let alphabetTool = {
-    alphabet : 'абвгдеёжзийклмопрстуфхцчшщъыьэюя',
+    alphabet : 'абвгдеёжзийклмопрстуфхцчшщъыьэюя!@#$%^&*()_+.,:;>< abcdefghigklmnopqrstuvwxyz0987654321',
     getCharWithId : function (id) {
         return this.alphabet.charAt(id % this.alphabet.length);
     },
