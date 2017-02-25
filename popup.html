@@ -3,17 +3,20 @@
 	<head>
     <title>Safe cafe</title>
 		<meta charset="utf-8" >
+		<script src="logic.js"></script>
+
 	</head>
 	<body>
 
     <form id="encryptForm">
 
       <p>Open text:</p>
-      <input id="openText" type="text", placeholder="type your text here">
-      <p>Encryped text:</p>
-      <input id="encryptedText" type="text" placeholder="ecrypted text">
+      <textarea type="text" id="openText" placeholder="type your text here"></textarea>
+	  <input type="button"  id="encryptButton" value="encrypt" onclick="">
+      <p>Close text:</p>
+      <textarea id="encryptedText" type="text" placeholder="ecrypted text"></textarea>
 
-      <input id="encrypt" type="button" value="encrypt">
+      <input id="decrypt" type="button" value="decrypt">
 
     </form>
 
