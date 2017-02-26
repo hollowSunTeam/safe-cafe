@@ -9,7 +9,7 @@ let alphabetTool = {
     OFFSET : 3,
     getCharWithId : function (id) {
         if(id < 0){
-            return this.alphabet.charAt((this.alphabet.length + id) % this.alphabet.length);
+            return this.alphabet.charAt((this.alphabet.length + id % this.alphabet.length));
         }
         return this.alphabet.charAt(id % this.alphabet.length);
     },
