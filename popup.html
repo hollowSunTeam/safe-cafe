@@ -5,7 +5,8 @@
 		<meta charset="utf-8" >
         <style>
             .menu{
-            width: 200px;
+                width: 200px;
+                max-height: 300px;
             }
         </style>
 		<script defer src="logic.js"></script>
@@ -20,14 +21,18 @@
 
     <div class="menu">
         <form id="encryptForm">
+            <p>Key:</p>
+            <input type="text" id="key" class="form-control" placeholder="input key (number)" >
 
-          <p>Open text:</p>
-          <textarea type="text" id="openText" class="form-control" placeholder="type your text here"></textarea>
-            <p align="right"><input type="button" id="encryptButton" class="btn btn-default" value="encrypt" ></p>
+            <p>Open text:</p>
+            <textarea type="text" id="openText" class="form-control" placeholder="type your text here"></textarea>
+            <p align="right"><input type="button" id="encryptButton" class="btn btn-default" value="encrypt"/></p>
             <p></p>
-          <p>Close text:</p>
-          <textarea type="text" id="encryptedText" class="form-control" placeholder="ecrypted text"></textarea>
-            <p align="right"><input type="button" id="decryptButton" class="btn btn-default" value="decrypt" ></p>
+
+            <p>Close text:</p>
+            <textarea type="text" id="encryptedText" class="form-control" placeholder="ecrypted text"></textarea>
+            <p align="right"><input type="button" id="decryptButton" class="btn btn-default" value="decrypt"/></p>
+
         </form>
     </div>
 

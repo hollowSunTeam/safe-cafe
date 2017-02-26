@@ -2,14 +2,14 @@ function id(name) { return document.getElementById(name); }
 
 let openTextInput = id('openText');
 let encryptedTextInput = id('encryptedText');
-
-let OFFSET = 3;
+let keyInput = id('key');
 
 let alphabetTool = {
-    alphabet : 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя!?@#$%^&*()_-+.,:;>< abcdefghigklmnopqrstuvwxyz0987654321',
+    alphabet : 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя!?@#$%^&*()_-+.,:;>< abcdefghijklmnopqrstuvwxyz0987654321',
+    OFFSET : 3,
     getCharWithId : function (id) {
         if(id < 0){
-            return this.alphabet.charAt(this.alphabet.length + id);
+            return this.alphabet.charAt((this.alphabet.length + id) % this.alphabet.length);
         }
         return this.alphabet.charAt(id % this.alphabet.length);
     },
@@ -18,6 +18,12 @@ let alphabetTool = {
     },
 };
 
+//ON KEY CHANGED
+document.getElementById('key').onchange = function () {
+    alphabetTool.OFFSET = Number(keyInput.value);
+}
+
+//ON ENCRYPT CLICK
 document.getElementById('encryptButton').onclick = function () {
 
     let message = openTextInput.value;
@@ -30,6 +36,7 @@ document.getElementById('encryptButton').onclick = function () {
     encryptedTextInput.value = encryptedMessage;
 };
 
+//ON DECRYPT CLICK
 document.getElementById('decryptButton').onclick = function () {
 
     let message = encryptedTextInput.value;
@@ -43,9 +50,9 @@ document.getElementById('decryptButton').onclick = function () {
 };
 
 function encryptLetter(char) {
-    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) + OFFSET);
+    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) + alphabetTool.OFFSET);
 }
 
 function decryptLetter(char) {
-    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) - OFFSET);
+    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) - alphabetTool.OFFSET);
 }
