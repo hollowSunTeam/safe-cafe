@@ -1,8 +1,12 @@
 function id(name) { return document.getElementById(name); }
 
+let keyInput = id('key');
+
 let openTextInput = id('openText');
 let encryptedTextInput = id('encryptedText');
-let keyInput = id('key');
+
+let encryptButton = id('encryptButton');
+let decryptButton = id('decryptButton');
 let clearButton = id('clearButton');
 
 let alphabetTool = {
@@ -20,12 +24,12 @@ let alphabetTool = {
 };
 
 //ON KEY CHANGED
-document.getElementById('key').onchange = function () {
+keyInput.onchange = function () {
     alphabetTool.OFFSET = Number(keyInput.value);
 }
 
 //ON ENCRYPT CLICK
-document.getElementById('encryptButton').onclick = function () {
+encryptButton.onclick = function () {
 
     let message = openTextInput.value;
     let encryptedMessage = "";
@@ -38,7 +42,7 @@ document.getElementById('encryptButton').onclick = function () {
 };
 
 //ON DECRYPT CLICK
-document.getElementById('decryptButton').onclick = function () {
+decryptButton.onclick = function () {
 
     let message = encryptedTextInput.value;
     let decryptedMessage = "";
