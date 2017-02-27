@@ -2,7 +2,7 @@
 	"manifest_version" : 2,
 	"name" : "Safe Cafe",
 	"short_name" : "scED",
-	"version" : "0.1",
+	"version" : "0.2",
 	"author" : "Hollow Sun tm",
 	"description" : "Decrypt and Encrypt the conversation and keep it safety.",
 	
@@ -21,7 +21,7 @@
 	
     "browser_action": {
         "default_title": "",
-        "default_icon": "icons/64x64.png",
+        "default_icon": "icons/32x32.png",
 		"default_popup": "popup.html"
     }
 }
