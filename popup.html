@@ -10,6 +10,16 @@
             textarea{
                 max-height: 100px
             }
+
+            input.clear{
+	            background-image: url('image/garbage.png');
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-position: 0px center;
+                padding-left: 18px;
+                padding-center: 10px;
+
+             }
         </style>
 		<script defer src="logic.js"></script>
         <!--jQuery-->
@@ -23,7 +33,7 @@
 
     <div class="menu">
         <form id="encryptForm">
-            <p align="right"><input type="button" id="clearButton" class="btn btn-default" value="clear"/></p>
+            <p align="right"><input type="button"  class="clear" id="clearButton" class="btn btn-default" value=""/></p>
             <p>Key:</p>
             <input type="text" id="key" class="form-control" placeholder="input key (number)" >
 
