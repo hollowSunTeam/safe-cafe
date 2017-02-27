@@ -56,3 +56,9 @@ function encryptLetter(char) {
 function decryptLetter(char) {
     return alphabetTool.getCharWithId(alphabetTool.getCharId(char) - alphabetTool.OFFSET);
 }
+
+document.getElementById('clearButton').onclick = function () {
+    openTextInput.value = "";
+    encryptedTextInput.value = "";
+    keyInput.value = "";
+};
