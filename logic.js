@@ -2,8 +2,8 @@ function id(name) { return document.getElementById(name); }
 
 let keyInput = id('key');
 
-let openTextInput = id('openText');
-let encryptedTextInput = id('encryptedText');
+let textInput = id('Text');
+//let encryptedTextInput = id('encryptedText');
 
 let encryptButton = id('encryptButton');
 let decryptButton = id('decryptButton');
@@ -31,33 +31,32 @@ keyInput.onchange = function () {
 //ON ENCRYPT CLICK
 encryptButton.onclick = function () {
 
-    let message = openTextInput.value;
+    let message = textInput.value;
     let encryptedMessage = "";
 
     for(charNum in message){
         encryptedMessage += encryptLetter(message[charNum]);
     }
 
-    encryptedTextInput.value = encryptedMessage;
+    textInput.value = encryptedMessage;
 };
 
 //ON DECRYPT CLICK
 decryptButton.onclick = function () {
 
-    let message = encryptedTextInput.value;
+    let message = textInput.value;
     let decryptedMessage = "";
 
     for(charNum in message){
         decryptedMessage += decryptLetter(message[charNum]);
     }
 
-    openTextInput.value = decryptedMessage;
+    textInput.value = decryptedMessage;
 };
 
 // ON CLEAR ClICK
 clearButton.onclick = function () {
-    openTextInput.value = "";
-    encryptedTextInput.value = "";
+    textInput.value = "";
     keyInput.value = "";
 };
 
