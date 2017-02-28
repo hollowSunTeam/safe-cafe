@@ -5,7 +5,7 @@
 		<meta charset="utf-8" >
         <style>
             .menu{
-                width: 200px;
+                width: 210px;
             }
             textarea{
                 max-height: 100px
@@ -23,19 +23,18 @@
 
     <div class="menu">
         <form id="encryptForm">
-            <p align="right"><input type="button" id="clearButton" class="btn btn-danger" value="Clear"/></p>
-            <p>Key:</p>
+            <p align="center"><b>Safe Cafe</b></p>
+
             <input type="text" id="key" class="form-control" placeholder="input key (number)" >
             <p></p>
+            <textarea type="text" id="Text" class="form-control" placeholder="type your text here"></textarea>
 
-            <p>Open text:</p>
-            <textarea type="text" id="openText" class="form-control" placeholder="type your text here"></textarea>
-            <p align="right"><input type="button" id="encryptButton" class="btn btn-primary" value="encrypt"/></p>
-            <p></p>
+            <p align="center">
+                <input type="button" id="encryptButton" class="btn btn-primary" value="Encrypt"/>
+                <input type="button" id="decryptButton" class="btn btn-success" value="Decrypt"/>
+                <input type="button" id="clearButton" class="btn btn-danger" value="Clear"/>
+            </p>
 
-            <p>Close text:</p>
-            <textarea type="text" id="encryptedText" class="form-control" placeholder="ecrypted text"></textarea>
-            <p align="right"><input type="button" id="decryptButton" class="btn btn-success" value="decrypt"/></p>
 
         </form>
     </div>
