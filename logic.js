@@ -14,9 +14,15 @@ let alphabetTool = {
     OFFSET : 3,
     getCharWithId : function (id) {
         if(id < 0){
-            return this.alphabet.charAt((this.alphabet.length + id % this.alphabet.length));
+            let charId = id % this.alphabet.length;
+
+            if(charId === -0)
+                return this.alphabet.charAt(0);
+
+            return this.alphabet.charAt((this.alphabet.length + charId));
         }
-        return this.alphabet.charAt(id % this.alphabet.length);
+        let charId = id % this.alphabet.length;
+        return this.alphabet.charAt(charId);
     },
     getCharId : function (char) {
         return this.alphabet.indexOf(char.toLowerCase());
