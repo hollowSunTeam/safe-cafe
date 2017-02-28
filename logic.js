@@ -1,9 +1,7 @@
 function id(name) { return document.getElementById(name); }
 
 let keyInput = id('key');
-
 let textInput = id('Text');
-//let encryptedTextInput = id('encryptedText');
 
 let encryptButton = id('encryptButton');
 let decryptButton = id('decryptButton');
@@ -31,8 +29,8 @@ let alphabetTool = {
 
 //ON KEY CHANGED
 keyInput.onchange = function () {
-    alphabetTool.OFFSET = Number(keyInput.value);
-}
+    alphabetTool.OFFSET = convertKey(keyInput.value);
+};
 
 //ON ENCRYPT CLICK
 encryptButton.onclick = function () {
@@ -40,7 +38,7 @@ encryptButton.onclick = function () {
     let message = textInput.value;
     let encryptedMessage = "";
 
-    for(charNum in message){
+    for(var charNum in message){
         encryptedMessage += encryptLetter(message[charNum]);
     }
 
@@ -53,7 +51,7 @@ decryptButton.onclick = function () {
     let message = textInput.value;
     let decryptedMessage = "";
 
-    for(charNum in message){
+    for(var charNum in message){
         decryptedMessage += decryptLetter(message[charNum]);
     }
 
@@ -65,6 +63,18 @@ clearButton.onclick = function () {
     textInput.value = "";
     keyInput.value = "";
 };
+
+//Key its a sum of charId from Alphabet
+function convertKey(keyStr) {
+
+    let key = 0;
+
+    for(var char in keyStr){
+        key += alphabetTool.getCharId(keyStr[char]);
+    }
+
+    return key;
+}
 
 function encryptLetter(char) {
     return alphabetTool.getCharWithId(alphabetTool.getCharId(char) + alphabetTool.OFFSET);
