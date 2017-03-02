@@ -38,8 +38,8 @@ encryptButton.onclick = function () {
     let message = textInput.value;
     let encryptedMessage = "";
 
-    for(var charNum in message){
-        encryptedMessage += encryptLetter(message[charNum]);
+    for(var char of message){
+        encryptedMessage += encryptLetter(char);
     }
 
     textInput.value = encryptedMessage;
@@ -51,8 +51,8 @@ decryptButton.onclick = function () {
     let message = textInput.value;
     let decryptedMessage = "";
 
-    for(var charNum in message){
-        decryptedMessage += decryptLetter(message[charNum]);
+    for(var char of message){
+        decryptedMessage += decryptLetter(char);
     }
 
     textInput.value = decryptedMessage;
@@ -69,8 +69,8 @@ function convertKey(keyStr) {
 
     let key = 0;
 
-    for(var char in keyStr){
-        key += alphabetTool.getCharId(keyStr[char]);
+    for(var char of keyStr){
+        key += alphabetTool.getCharId(char);
     }
 
     return key;
