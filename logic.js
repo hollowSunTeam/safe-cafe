@@ -30,7 +30,6 @@ let alphabetTool = {
 //ON KEY CHANGED
 keyInput.onchange = function () {
     alphabetTool.OFFSET = convertKey(keyInput.value);
-    console.log("KEY CHANGED TO : " + alphabetTool.OFFSET );
 };
 
 //ON ENCRYPT CLICK
@@ -40,8 +39,6 @@ encryptButton.onclick = function () {
     let encryptedMessage = "";
 
     let offsetMassive = generateOffsetMassive(alphabetTool.OFFSET);
-
-    console.log("ENC OFFSET :" + offsetMassive);
 
     for(var charNum in message){
         encryptedMessage += encryptLetter(message[charNum], offsetMassive[charNum]);
@@ -57,8 +54,6 @@ decryptButton.onclick = function () {
     let decryptedMessage = "";
 
     let offsetMassive = generateOffsetMassive(alphabetTool.OFFSET);
-
-    console.log("DEC OFFSET :" + offsetMassive);
 
     for(var charNum in message){
         decryptedMessage += decryptLetter(message[charNum], offsetMassive[charNum]);
@@ -110,16 +105,6 @@ function generateOffsetMassive(sid) {
     }
 
     return offset;
-}
-
-
-//ENCRYPT WITH STABLE OFFSET
-function encryptLetter(char) {
-    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) + alphabetTool.OFFSET);
-}
-
-function decryptLetter(char) {
-    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) - alphabetTool.OFFSET);
 }
 
 //ENCRYPT WITH MANUAL OFFSET
