@@ -12,13 +12,13 @@
             }
         </style>
 		<script defer src="logic.js"></script>
-
         <!--jQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!--Bootstrap-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!--Clipboard-->
         <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js"></script>
     </head>
 	<body>
@@ -36,13 +36,13 @@
                 <input type="button" id="decryptButton" class="btn btn-success" value="Decrypt"/>
                 <input type="button" id="clearButton" class="btn btn-danger" value="Clear"/>
 
-                <script>
-                //var btn = document.getElementById('btn btn-default');
-                var clipboard = new Clipboard('btn');
-                </script>
-                <button type="button" class="btn" data-clipboard-target="#textarea">Copy</button>
+                <button type="button" class="btn btnCopy" data-clipboard-target="#Text">Copy</button>
             </p>
         </form>
     </div>
     </body>
+
+    <script>
+        var clipboard = new Clipboard('.btnCopy');
+    </script>
 </html>
