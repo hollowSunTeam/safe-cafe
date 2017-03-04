@@ -38,8 +38,10 @@ encryptButton.onclick = function () {
     let message = textInput.value;
     let encryptedMessage = "";
 
-    for(var char of message){
-        encryptedMessage += encryptLetter(char);
+    let offsetMassive = generateOffsetMassive(alphabetTool.OFFSET);
+
+    for(var charNum in message){
+        encryptedMessage += encryptLetter(message[charNum], offsetMassive[charNum]);
     }
 
     textInput.value = encryptedMessage;
@@ -51,8 +53,10 @@ decryptButton.onclick = function () {
     let message = textInput.value;
     let decryptedMessage = "";
 
-    for(var char of message){
-        decryptedMessage += decryptLetter(char);
+    let offsetMassive = generateOffsetMassive(alphabetTool.OFFSET);
+
+    for(var charNum in message){
+        decryptedMessage += decryptLetter(message[charNum], offsetMassive[charNum]);
     }
 
     textInput.value = decryptedMessage;
@@ -76,10 +80,38 @@ function convertKey(keyStr) {
     return key;
 }
 
-function encryptLetter(char) {
-    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) + alphabetTool.OFFSET);
+//GENERATE OFFSET MASSIVE
+function generateOffsetMassive(sid) {
+
+    //Params of generator
+    let A = 11;
+    let C = 17;
+    let K = 5;
+
+    let offset = [];
+
+    //Pseudo generator
+    for(var i = 0; i < alphabetTool.alphabet.length; i++){
+
+        let curOffset;
+
+        if(i < 1){
+            curOffset = (A * K + sid) % C;
+            offset.push(curOffset);
+        } else {
+            curOffset =  (A * offset[i-1] + sid) % C;
+            offset.push(curOffset);
+        }
+    }
+
+    return offset;
 }
 
-function decryptLetter(char) {
-    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) - alphabetTool.OFFSET);
+//ENCRYPT WITH MANUAL OFFSET
+function encryptLetter(char, offset) {
+    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) + offset);
+}
+
+function decryptLetter(char, offset) {
+    return alphabetTool.getCharWithId(alphabetTool.getCharId(char) - offset);
 }
