@@ -6,6 +6,7 @@ let textInput = id('Text');
 let encryptButton = id('encryptButton');
 let decryptButton = id('decryptButton');
 let clearButton = id('clearButton');
+let copyButton = id('copyButton');
 
 let alphabetTool = {
     alphabet : 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя!?@#$%^&*()_-+.,:;>< abcdefghijklmnopqrstuvwxyz0987654321',
